@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Tabs Cleanup — Options</title>
+    <style>
+      :root { --bg:#1a1b1e; --panel:#25262b; --panel-2:#2c2e33; --border:#373a40; --text:#e9ecef; --muted:#909296; --accent:#7c5cff; }
+      html, body { scrollbar-width: thin; scrollbar-color: #4a4d55 transparent; }
+      *::-webkit-scrollbar { width: 8px; height: 8px; }
+      *::-webkit-scrollbar-track { background: transparent; }
+      *::-webkit-scrollbar-thumb { background: #3a3d44; border-radius: 4px; border: 2px solid transparent; background-clip: padding-box; }
+      *::-webkit-scrollbar-thumb:hover { background: #5a5e68; background-clip: padding-box; }
+      *::-webkit-scrollbar-corner { background: transparent; }
+      *::-webkit-scrollbar-button { display: none; }
+      body { margin:0; padding:24px; background:var(--bg); color:var(--text); font:14px/1.5 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; }
+      .wrap { max-width: 720px; margin: 0 auto; }
+      h1 { font-size: 18px; margin: 0 0 16px; }
+      h2 { font-size: 14px; margin: 22px 0 8px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+      label { display: block; margin: 8px 0; }
+      input[type=number], input[type=text], textarea {
+        width: 100%; background: var(--panel); border: 1px solid var(--border); border-radius: 6px;
+        color: var(--text); padding: 8px 10px; font: inherit; font-family: ui-monospace, Menlo, Consolas, monospace;
+      }
+      textarea { min-height: 140px; resize: vertical; }
+      .row { display: flex; gap: 12px; }
+      .row > * { flex: 1; }
+      .help { color: var(--muted); font-size: 12px; margin-top: 4px; }
+      .actions { display: flex; gap: 8px; margin-top: 20px; }
+      button { background: var(--accent); color: white; border: 0; border-radius: 6px; padding: 8px 16px; cursor: pointer; font: inherit; }
+      button.secondary { background: var(--panel-2); border: 1px solid var(--border); color: var(--text); }
+      .saved { color: #51cf66; font-size: 12px; margin-left: 8px; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>Tabs Cleanup — Options</h1>
+
+      <h2>Pin patterns (never close, never touch)</h2>
+      <textarea id="pinPatterns" spellcheck="false" placeholder="One glob per line. * matches anything."></textarea>
+      <div class="help">URLs matching any pattern are protected. Localhost and Tailscale IPs are auto-detected separately.</div>
+
+      <h2>Thresholds</h2>
+      <div class="row">
+        <label>
+          Stale tab threshold (hours)
+          <input type="number" id="staleHours" min="1" max="720" />
+          <div class="help">Tabs not focused for this long are flagged stale.</div>
+        </label>
+        <label>
+          YouTube idle threshold (hours)
+          <input type="number" id="youtubeIdleHours" min="1" max="168" />
+          <div class="help">Idle YouTube watch tabs are flagged for cleanup.</div>
+        </label>
+        <label>
+          Same-domain pile-up threshold
+          <input type="number" id="sameDomainExplosionThreshold" min="2" max="50" />
+          <div class="help">Flag domains with this many tabs or more.</div>
+        </label>
+      </div>
+
+      <div class="actions">
+        <button id="saveBtn">Save</button>
+        <button id="resetBtn" class="secondary">Reset to defaults</button>
+        <span id="saved" class="saved"></span>
+      </div>
+    </div>
+    <script type="module" src="options.js"></script>
+  </body>
+</html>

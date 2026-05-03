@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header>
+      <div class="title">
+        <strong>Tabs</strong>
+        <span id="counts" class="muted"></span>
+      </div>
+      <div class="toolbar">
+        <button id="refreshBtn" title="Re-scan">↻</button>
+        <button id="historyBtn" title="Recently closed (this session)">History</button>
+        <button id="stashBtn" title="View stash">Stash</button>
+        <button id="optionsBtn" title="Options">⚙</button>
+      </div>
+    </header>
+
+    <main id="categories"></main>
+
+    <section id="stashPanel" class="stash-panel hidden">
+      <div class="stash-header">
+        <strong>Stashed tabs</strong>
+        <div>
+          <button id="clearStashBtn" class="danger">Clear all</button>
+          <button id="closeStashBtn">Back</button>
+        </div>
+      </div>
+      <div id="stashList"></div>
+    </section>
+
+    <section id="historyPanel" class="stash-panel hidden">
+      <div class="stash-header">
+        <strong title="Cleared when the browser closes">Recently closed</strong>
+        <div>
+          <button id="restoreAllHistoryBtn" title="Restore all">↶ All</button>
+          <button id="clearHistoryBtn" class="danger" title="Clear all">Clear</button>
+          <button id="closeHistoryBtn">Back</button>
+        </div>
+      </div>
+      <div id="historyList"></div>
+    </section>
+
+    <div id="selectionBar" class="selection-bar hidden">
+      <span id="selectionCount" class="muted"></span>
+      <div class="sb-actions">
+        <button id="selStashBtn">Stash selected</button>
+        <button id="selCloseBtn" class="danger">Close selected</button>
+        <button id="selClearBtn">Clear</button>
+      </div>
+    </div>
+
+    <footer id="footer">
+      <span id="status" class="muted"></span>
+    </footer>
+
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>
