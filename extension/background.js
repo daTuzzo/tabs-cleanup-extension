@@ -1,5 +1,5 @@
-// Service worker. Routes messages between popup and the local Claude bridge,
-// and owns the stash storage (so popup can close cleanly).
+// Service worker. Handles messages from the popup and owns the stash and
+// session-history storage so the popup can close cleanly.
 
 import { categorize, DEFAULT_SETTINGS } from "./rules.js";
 

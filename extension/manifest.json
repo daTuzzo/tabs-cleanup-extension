@@ -2,9 +2,8 @@
   "manifest_version": 3,
   "name": "Tabs Cleanup",
   "version": "0.1.0",
-  "description": "Personal tab manager: categorize, stash, and ask Claude what to close.",
+  "description": "Rule-based tab cleanup: categorize, stash, and bulk-close tabs in Chrome and Opera.",
   "permissions": ["tabs", "storage", "tabGroups", "alarms"],
-  "host_permissions": ["<all_urls>"],
   "background": {
     "service_worker": "background.js",
     "type": "module"

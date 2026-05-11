@@ -1,8 +1,8 @@
 # Tabs Cleanup
 
-Personal Chrome/Opera extension for managing a chaotic set of open tabs. Categorizes them (duplicates, search pages, idle YouTube, stale, localhost, articles, shopping, GitHub browsing, forum threads, …), and lets you stash or close in bulk. Soft-stash persists across browser restarts; close-history persists only until the browser quits.
+Chrome/Opera extension for managing a chaotic set of open tabs. Categorizes them (duplicates, search pages, idle YouTube, stale, localhost, articles, shopping, GitHub browsing, forum threads, …), and lets you stash or close in bulk. Soft-stash persists across browser restarts; close-history persists only until the browser quits.
 
-Local-only. No telemetry. No network calls.
+Local-only. No telemetry. No network calls. MIT licensed.
 
 ## Install
 
